@@ -14,6 +14,7 @@ function Home() {
       <Nav />
       <Title>어떤 아이디어를 찾고 있나요?</Title>
       <Prompt placeholder='흥미로운 주제를 입력해 보세요'/>
+      <ResultText>총 10개의 아이디어가 생성되었어요</ResultText>
       <OutputContainer>
         {outputList.map((output, index) => {
           return <Output key={index}>{output}</Output>
@@ -73,20 +74,29 @@ const OutputContainer = styled.ul`
     }
 `
 
+const ResultText = styled.div`
+    font-size: 16px;
+    margin-top: 40px;
+    color: var(--gray-500);
+    width: 100%;
+    text-align: center;
+`
+
 const Output = styled.li`
     font-size: 16px;
     margin-top: 20px;
     color: var(--gray-700);
     &:hover {
-      color: var(--gray-800);
-      cursor: pointer;
+      background-color: var(--gray-100);
     }
     width: 100%;
     transition: color 0.3s ease-in-out;
     list-style-type: none;
     margin-left: -40px;
     background-color: var(--white);
-    box-shadow: 0 8px 10px 0 var(--gray-300);
+    box-shadow: 0 4px 10px 0 var(--gray-200);
     padding: 20px;
     border-radius: 8px;
+    transition: box-shadow 0.3s ease-in-out;
+    border: 1px solid var(--gray-300);
 `
