@@ -37,7 +37,7 @@ const Logo = styled.h1`
     color: var(--white);
     background-color: var(--blue-400);
     border-radius: 8px;
-    margin-left: 40px;
+    margin-left: 60px;
 `
 
 const ButtonContainer = styled.div`
