@@ -19,6 +19,7 @@ export default function Nav() {
 }
 
 const Container = styled.div`
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -27,6 +28,7 @@ const Container = styled.div`
     padding-left: 20px;
     padding: 10px 0;
     box-shadow: 0 0 10px 0 var(--gray-300);
+    border-radius: 0 0 32px 32px;
 `
 
 const Logo = styled.h1`
