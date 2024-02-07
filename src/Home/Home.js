@@ -14,6 +14,7 @@ function Home() {
       <Nav />
       <Title>어떤 아이디어를 찾고 있나요?</Title>
       <Prompt placeholder='흥미로운 주제를 입력해 보세요'/>
+      <GenerateButton>아이디어 생성하기</GenerateButton>
       <ResultText>총 10개의 아이디어가 생성되었어요</ResultText>
       <OutputContainer>
         {outputList.map((output, index) => {
@@ -62,6 +63,27 @@ const Prompt = styled.textarea`
       box-shadow: 0 10px 20px 0 var(--gray-400);
     }
     transition: box-shadow 0.3s ease-in-out;
+`
+
+const GenerateButton = styled.button`
+    font-size: 16px;
+    margin-top: 20px;
+    width: 540px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    border: 2px solid var(--blue-300);
+    background-color: var(--blue-100);
+    color: var(--blue-500);
+    cursor: pointer;
+    box-shadow: 0 8px 10px 0 var(--gray-300);
+    transition: box-shadow 0.3s ease-in-out;
+    &:hover {
+      box-shadow: 0 10px 20px 0 var(--gray-400);
+    }
+    @media screen and (max-width: 550px){
+      width: 90%;
+    }
 `
 
 const OutputContainer = styled.ul`
