@@ -6,21 +6,26 @@ function Home() {
 
   const [outputList, setOutputList] = useState([]);
   const prompt = useRef();
+  const [isLoading, setIsLoading] = useState(false);
 
   function generateIdea() {
     // textarea값 가져오기
     const promptValue = prompt.current.value;
     
-    if (promptValue === '') {
+    if (promptValue === '' || isLoading) {
       return
     }
+    
+    setIsLoading(true);
     IdeaService.generateIdea(promptValue, 10)
       .then((response) => {
         console.log(response);
         setOutputList(response);
+        setIsLoading(false);
       })
       .catch((error) => {
         console.error(error);
+        setIsLoading(false);
       });
   }
 
@@ -28,13 +33,12 @@ function Home() {
     <Body>
       <Title>어떤 아이디어를 찾고 있나요?</Title>
       <Prompt ref={prompt} placeholder='흥미로운 주제를 입력해 보세요' />
-      <GenerateButton onClick={() => generateIdea()}>아이디어 생성하기</GenerateButton>
+      <GenerateButton isLoading={isLoading} onClick={() => generateIdea()}>아이디어 생성하기</GenerateButton>
       {outputList.length !== 0 && <ResultText>총 10개의 아이디어가 생성되었어요</ResultText>}
       <OutputContainer>
         {outputList.map((output, index) => {
           return <Output key={index}>{output}</Output>
-        }
-        )}
+        })}
       </OutputContainer>
     </Body>
   );
@@ -87,11 +91,11 @@ const GenerateButton = styled.button`
     border-radius: 8px;
     font-weight: 700;
     border: 2px solid var(--blue-300);
-    background-color: var(--blue-100);
+    background-color: ${props => props.isLoading ? 'var(--blue-200)' : 'var(--blue-100)'};
     color: var(--blue-500);
-    cursor: pointer;
+    cursor: ${props => props.isLoading ? 'not-allowed' : 'pointer'};
     box-shadow: 0 8px 10px 0 var(--gray-300);
-    transition: box-shadow 0.3s ease-in-out;
+    transition: 0.3s;
     &:hover {
       box-shadow: 0 10px 20px 0 var(--gray-400);
     }
