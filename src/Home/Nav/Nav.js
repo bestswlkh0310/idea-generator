@@ -1,7 +1,10 @@
 import styled from "styled-components"
-
+import { useNavigate } from "react-router-dom"
 
 export default function Nav() {
+
+    const navigate = useNavigate()
+
     return (
         <Container>
             <div>
@@ -10,9 +13,9 @@ export default function Nav() {
                 </Logo>
             </div>
             <ButtonContainer>
-                <Button>생성하기</Button>
-                <Button>후원</Button>
-                <Button>연락</Button>
+                <Button onClick={() => {navigate('/')}}>생성하기</Button>
+                <Button onClick={() => {navigate('/support')}}>후원</Button>
+                <Button onClick={() => {navigate('/about')}}>연락</Button>
             </ButtonContainer>
         </Container>
     )

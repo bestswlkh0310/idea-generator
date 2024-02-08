@@ -1,4 +1,3 @@
-import Nav from './Nav/Nav';
 import styled from "styled-components";
 
 function Home() {
@@ -11,7 +10,6 @@ function Home() {
 
   return (
     <Body>
-      <Nav />
       <Title>어떤 아이디어를 찾고 있나요?</Title>
       <Prompt placeholder='흥미로운 주제를 입력해 보세요'/>
       <GenerateButton>아이디어 생성하기</GenerateButton>
