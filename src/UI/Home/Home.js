@@ -1,19 +1,35 @@
 import styled from "styled-components";
+import IdeaService from '../../service/IdeaService';
+import { useRef, useState } from "react";
 
 function Home() {
 
-  let outputList = [
-    '흥미로운 주제를 입력해 보세요',
-    '어떤 주제를 찾고 있나요?',
-    '원하는 주제를 입력해 보세요'
-  ]
+  const [outputList, setOutputList] = useState([]);
+  const prompt = useRef();
+
+  function generateIdea() {
+    // textarea값 가져오기
+    const promptValue = prompt.current.value;
+    
+    if (promptValue === '') {
+      return
+    }
+    IdeaService.generateIdea(promptValue, 10)
+      .then((response) => {
+        console.log(response);
+        setOutputList(response);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
 
   return (
     <Body>
       <Title>어떤 아이디어를 찾고 있나요?</Title>
-      <Prompt placeholder='흥미로운 주제를 입력해 보세요'/>
-      <GenerateButton>아이디어 생성하기</GenerateButton>
-      <ResultText>총 10개의 아이디어가 생성되었어요</ResultText>
+      <Prompt ref={prompt} placeholder='흥미로운 주제를 입력해 보세요' />
+      <GenerateButton onClick={() => generateIdea()}>아이디어 생성하기</GenerateButton>
+      {outputList.length !== 0 && <ResultText>총 10개의 아이디어가 생성되었어요</ResultText>}
       <OutputContainer>
         {outputList.map((output, index) => {
           return <Output key={index}>{output}</Output>
