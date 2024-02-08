@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import { useNavigate } from "react-router-dom"
+import { NavList } from "../../util/Constant"
 
 export default function Nav() {
 
@@ -8,14 +9,12 @@ export default function Nav() {
     return (
         <Container>
             <div>
-                <Logo>
-                    아이디어 생성기
-                </Logo>
+                <Logo>Idea Generator</Logo>
             </div>
             <ButtonContainer>
-                <Button onClick={() => {navigate('/')}}>생성하기</Button>
-                <Button onClick={() => {navigate('/support')}}>후원</Button>
-                <Button onClick={() => {navigate('/about')}}>연락</Button>
+                {NavList.map((nav, index) => {
+                    return <Button key={index} onClick={() => {navigate(nav.path)}}>{nav.title}</Button>
+                })}
             </ButtonContainer>
         </Container>
     )

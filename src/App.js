@@ -1,7 +1,8 @@
 import {  BrowserRouter, Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
-import Nav from './Home/Nav/Nav';
-import Home from './Home/Home';
+import Nav from './UI/Nav/Nav';
+import Home from './UI/Home/Home';
+import { NavList } from './util/Constant';
 
 export default function App() {
 
@@ -10,9 +11,9 @@ export default function App() {
             <BrowserRouter>
                 <Nav/>
                 <Routes>
-                    <Route path="/" element={<Home/>} />
-                    <Route path="/support" element={<Home/>} />
-                    <Route path="/contact" element={<Home/>} />
+                    {NavList.map((nav, index) => {
+                        return <Route key={index} path={nav.path} element={nav.element}/>
+                    })}
                 </Routes>
             </BrowserRouter>
         </Container>
