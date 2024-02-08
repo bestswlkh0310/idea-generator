@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import contact from '../../res/img_contact.svg';
+import support from '../../res/img_support.svg';
 
 export default function Support() {
     return (
@@ -7,7 +7,7 @@ export default function Support() {
             <Title>후원하기</Title>
             <Description>모든 후원에 감사드립니다</Description>
             <CardContainer>
-                <CardImage src={contact}/>
+                <CardImage src={support}/>
                 <CardView>
                 </CardView>
                 <CardView>
