@@ -1,4 +1,5 @@
 import Home from "../UI/Home/Home"
+import Support from "../UI/Support/Support"
 
 export const NavList = [
     {
@@ -9,7 +10,7 @@ export const NavList = [
     {
         title: 'Support',
         path: '/support',
-        element: <div/>
+        element: <Support/>
     },
     {
         title: 'Contact',
