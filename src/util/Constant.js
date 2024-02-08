@@ -1,3 +1,4 @@
+import Contact from "../UI/Contact/Contact"
 import Home from "../UI/Home/Home"
 import Support from "../UI/Support/Support"
 
@@ -15,6 +16,6 @@ export const NavList = [
     {
         title: 'Contact',
         path: '/contact',
-        element: <div/>
+        element: <Contact/>
     }
 ]
