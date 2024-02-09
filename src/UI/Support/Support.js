@@ -1,18 +1,30 @@
 import styled from "styled-components"
 import support from '../../res/img_support.svg';
+import { Spacer } from '../../component/foundation/Spacer';
 
 export default function Support() {
     return (
         <Container>
             <Title>후원하기</Title>
             <Description>모든 후원에 감사드립니다</Description>
-            <CardContainer>
+            <CeilContainer>
                 <CardImage src={support}/>
-                <CardView>
-                </CardView>
-                <CardView>
-                </CardView>
-            </CardContainer>
+                <CardContainer>
+                    <CardView>
+                        <Spacer w={'24px'}/>
+                        <Description>
+                            카카오뱅크 7777-01-9063006
+                        </Description>
+                    </CardView>
+                    <Spacer h={'12px'}/>
+                    <CardView>
+                        <Spacer w={'24px'}/>
+                        <Description>
+                            토스뱅크 1908-6662-3625
+                        </Description>
+                    </CardView>
+                </CardContainer>
+            </CeilContainer>
         </Container>
     );
 }
@@ -30,6 +42,13 @@ const Container = styled.div`
 
 const CardContainer = styled.div`
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+`;
+
+const CeilContainer = styled.div`
+    display: flex;
     align-items: end;
     justify-content: center;
     margin-top: 60px;
@@ -38,9 +57,9 @@ const CardContainer = styled.div`
 
 const CardView = styled.div`
     width: 300px;
-    height: 360px;
     display: flex;
-    justify-content: space-between;
+    height: 60px;
+    display: flex;
     align-items: center;
     padding: 10px 0;
     margin: 0 10px;
@@ -48,10 +67,6 @@ const CardView = styled.div`
     background-color: white;
     box-shadow: 0 0 10px 0 var(--gray-300);
     border: 1px solid var(--gray-300);
-    @media (max-width: calc(300px + 300px + 20px + 20px)) {
-        width: 100%;
-        margin: 0 4px;
-    }
 `
 
 const CardImage = styled.img`

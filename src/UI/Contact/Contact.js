@@ -6,14 +6,16 @@ export default function Contact() {
         <Container>
             <Title>Contact</Title>
             <Spacer h={'54px'}/>
-            <SubTitle>제작자</SubTitle>
-            <Description>이강현</Description>
-            <Spacer h={'24px'}/>
-            <SubTitle>소속</SubTitle>
-            <Description>대구소프트웨어마이스터고등학교</Description>
-            <Spacer h={'24px'}/>
-            <SubTitle>메일</SubTitle>
-            <Description>hhhello0507@gmail.com</Description>
+            <ContentContainer>
+                <SubTitle>누가 만들었나요</SubTitle>
+                <Description>이강현</Description>
+                <Spacer h={'24px'}/>
+                <SubTitle>지금 어디있나요</SubTitle>
+                <Description>대구소프트웨어마이스터고등학교</Description>
+                <Spacer h={'24px'}/>
+                <SubTitle>어디로 연락하나요</SubTitle>
+                <Description>hhhello0507@gmail.com</Description>
+            </ContentContainer>
         </Container>
     );
 }
@@ -29,6 +31,12 @@ const Container = styled.div`
     flex-direction: column;
 `
 
+const ContentContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+`
+
 const Title = styled.h1`
     font-size: 32px;
     margin: 0;
@@ -38,10 +46,12 @@ const Title = styled.h1`
 const SubTitle = styled.h2`
     font-size: 24px;
     margin: 0;
+    margin-top: 12px;
 `
 
 const Description = styled.h2`
     font-size: 18px;
     color: var(--gray-600);
     margin: 0;
+    margin-top: 8px;
 `
