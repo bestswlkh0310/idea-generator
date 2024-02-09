@@ -29,7 +29,7 @@ export default function Support() {
     );
 }
 
-const Container = styled.div`
+const Container = styled.section`
     width: 100%;
     display: flex;
     justify-content: center;

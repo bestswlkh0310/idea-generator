@@ -51,7 +51,7 @@ const Title = styled.h1`
     margin-top: 40px;
 `
 
-const Body = styled.div`
+const Body = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
