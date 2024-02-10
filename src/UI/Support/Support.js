@@ -11,14 +11,12 @@ export default function Support() {
                 <CardImage src={support}/>
                 <CardContainer>
                     <CardView>
-                        <Spacer w={'24px'}/>
                         <Description>
                             카카오뱅크 7777-01-9063006
                         </Description>
                     </CardView>
                     <Spacer h={'12px'}/>
                     <CardView>
-                        <Spacer w={'24px'}/>
                         <Description>
                             토스뱅크 1908-6662-3625
                         </Description>
@@ -56,11 +54,12 @@ const CeilContainer = styled.div`
 `
 
 const CardView = styled.div`
-    width: 300px;
+    width: 330px;
     display: flex;
     height: 60px;
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: 10px 0;
     margin: 0 10px;
     border-radius: 24px;
