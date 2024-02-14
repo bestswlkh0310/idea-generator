@@ -13,6 +13,7 @@ function Home() {
     const promptValue = prompt.current.value;
     
     if (promptValue === '' || isLoading) {
+      alert('프롬프트를 입력해 주세요');
       return
     }
     
