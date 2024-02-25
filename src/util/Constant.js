@@ -1,11 +1,11 @@
-import Home from "../UI/Home/Home"
+import Idea from "../UI/Idea/Idea"
 import Support from "../UI/Support/Support"
 
 export const NavList = [
     {
-        title: 'Home',
+        title: 'Idea',
         path: '/',
-        element: <Home/>
+        element: <Idea/>
     },
     {
         title: 'Support',

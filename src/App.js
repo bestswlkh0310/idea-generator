@@ -1,7 +1,7 @@
 import {  BrowserRouter, Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
 import Nav from './UI/Nav/Nav';
-import Home from './UI/Home/Home';
+import Idea from './UI/Idea/Idea';
 import { NavList } from './util/Constant';
 
 export default function App() {

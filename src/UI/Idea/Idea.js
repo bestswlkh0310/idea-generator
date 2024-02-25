@@ -2,7 +2,7 @@ import styled from "styled-components";
 import IdeaService from '../../service/IdeaService';
 import { useRef, useState } from "react";
 
-function Home() {
+function Idea() {
 
   const [outputList, setOutputList] = useState([]);
   const prompt = useRef();
@@ -45,7 +45,7 @@ function Home() {
   );
 }
 
-export default Home;
+export default Idea;
 
 const Title = styled.h1`
     font-size: 24px;
