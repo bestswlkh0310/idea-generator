@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import IdeaService from '../../service/IdeaService';
 import { useRef, useState } from "react";
+import { shadow1, shadow2, shadow3 } from "../../component/theme/Shadow";
 
 function Idea() {
 
@@ -74,12 +75,12 @@ const Prompt = styled.textarea`
     border: none;
     border-radius: 8px;
     height: 40px;
-    box-shadow: 0 8px 10px 0 var(--gray-300);
+    ${shadow2}
     &::placeholder {
       color: var(--gray-700);
     }
     &:focus {
-      box-shadow: 0 10px 20px 0 var(--gray-400);
+      ${shadow3}
     }
     transition: box-shadow 0.3s ease-in-out;
 `
@@ -95,10 +96,10 @@ const GenerateButton = styled.button`
     background-color: ${props => props.isLoading ? 'var(--blue-200)' : 'var(--blue-100)'};
     color: var(--blue-500);
     cursor: ${props => props.isLoading ? 'not-allowed' : 'pointer'};
-    box-shadow: 0 8px 10px 0 var(--gray-300);
+    ${shadow2}
     transition: 0.3s;
     &:hover {
-      box-shadow: 0 10px 20px 0 var(--gray-400);
+      ${shadow3}
     }
     @media screen and (max-width: 550px){
       width: 90%;
@@ -136,7 +137,7 @@ const Output = styled.li`
     list-style-type: none;
     margin-left: -40px;
     background-color: var(--white);
-    box-shadow: 0 4px 10px 0 var(--gray-200);
+    ${shadow1}
     padding: 20px;
     border-radius: 8px;
     transition: box-shadow 0.3s ease-in-out;
