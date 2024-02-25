@@ -25,7 +25,7 @@ function Playground() {
                 pos4 = e.clientY;
                 // if (elmnt.offsetTop - pos2 < 0) return;
                 // if (elmnt.offsetLeft - pos1 < 0) return;
-
+                
                 elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
                 elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
             };
@@ -37,7 +37,6 @@ function Playground() {
             elmnt.onmousedown = dragMouseDown;
         }
         console.log(elmnt);
-
     }
 
     useEffect(() => {
@@ -60,7 +59,8 @@ const Container = styled.section`
     display: flex;
     flex-direction: column;
     position: relative;
-`
+    z-index: -1;
+`;
 
 const Node = styled.div`
     background-color: blue;
@@ -68,6 +68,6 @@ const Node = styled.div`
     cursor: pointer;
     width: 100px;
     height: 100px;
-`
+`;
 
 export default Playground;
