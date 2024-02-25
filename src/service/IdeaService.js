@@ -10,4 +10,11 @@ export default class IdeaService {
 
         return response.data;
     }
+
+    static async justGpt(prompt) {
+        const response = await HttpClient.post('/gpt', {
+            prompt
+        });
+        return response.data;
+    }
 };
