@@ -1,9 +1,8 @@
 import { useEffect } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 function Playground() {
 
-    // 드래그 앤 드롭 기능을 구현할 함수
     function dragElement(elmnt) {
         const dragMouseDown = (e) => {
             e = e || window.event;
@@ -23,8 +22,6 @@ function Playground() {
                 pos2 = pos4 - e.clientY;
                 pos3 = e.clientX;
                 pos4 = e.clientY;
-                // if (elmnt.offsetTop - pos2 < 0) return;
-                // if (elmnt.offsetLeft - pos1 < 0) return;
                 
                 elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
                 elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
@@ -51,9 +48,16 @@ function Playground() {
             <Node className="node" id="node1"></Node>
             <Node className="node" id="node2"></Node>
             <Node className="node" id="node3"></Node>
-        </Container>
+        </Container>    
     );
 }
+
+const NodeStyle = css`
+    height: 54px;
+    background-color: var(--gray-100);
+    border-radius: 8px;
+    width: 128px;
+`
 
 const Container = styled.section`
     display: flex;
@@ -63,11 +67,9 @@ const Container = styled.section`
 `;
 
 const Node = styled.div`
-    background-color: blue;
+    ${NodeStyle}
     position: absolute;
     cursor: pointer;
-    width: 100px;
-    height: 100px;
 `;
 
 export default Playground;
