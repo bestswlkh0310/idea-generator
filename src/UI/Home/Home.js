@@ -18,10 +18,10 @@ function Home() {
     }
     
     setIsLoading(true);
-    IdeaService.generateIdea(promptValue, 10)
+    IdeaService.justGpt(promptValue)
       .then((response) => {
         console.log(response);
-        setOutputList(response);
+        setOutputList(i => i.concat(response));
         setIsLoading(false);
       })
       .catch((error) => {
