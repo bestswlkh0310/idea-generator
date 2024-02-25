@@ -126,6 +126,7 @@ const ResultText = styled.div`
 const Output = styled.li`
     font-size: 16px;
     margin-top: 20px;
+    line-height: 160%;
     color: var(--gray-700);
     &:hover {
       background-color: var(--gray-100);
