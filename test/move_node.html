@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Node Drag and Drop</title>
+<style>
+    #container {
+        width: 500px;
+        height: 500px;
+        border: 1px solid black;
+        position: relative;
+    }
+    .node {
+        width: 50px;
+        height: 50px;
+        background-color: blue;
+        position: absolute;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+<div id="container">
+    <div class="node" id="node1" style="top: 50px; left: 50px;"></div>
+    <div class="node" id="node2" style="top: 150px; left: 150px;"></div>
+    <div class="node" id="node3" style="top: 250px; left: 250px;"></div>
+</div>
+
+<script>
+    // 드래그 앤 드롭 기능을 구현할 함수
+    function dragElement(elmnt) {
+        let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+        if (document.getElementById(elmnt.id)) {
+            // 마우스로 노드를 클릭했을 때 발생하는 함수
+            document.getElementById(elmnt.id).onmousedown = dragMouseDown;
+        } else {
+            elmnt.onmousedown = dragMouseDown;
+        }
+
+        function dragMouseDown(e) {
+            e = e || window.event;
+            e.preventDefault();
+            // 마우스를 클릭한 위치의 현재 x, y 좌표를 가져옴
+            pos3 = e.clientX;
+            pos4 = e.clientY;
+            document.onmouseup = closeDragElement;
+            document.onmousemove = elementDrag;
+        }
+
+        function elementDrag(e) {
+            e = e || window.event;
+            e.preventDefault();
+            // 마우스를 이동한 만큼 노드의 위치를 조정
+            pos1 = pos3 - e.clientX;
+            pos2 = pos4 - e.clientY;
+            pos3 = e.clientX;
+            pos4 = e.clientY;
+            elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+            elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+        }
+
+        function closeDragElement() {
+            // 드래그 이벤트 해제
+            document.onmouseup = null;
+            document.onmousemove = null;
+        }
+    }
+
+    // 각 노드를 가져와서 드래그 앤 드롭 기능을 적용
+    const nodes = document.getElementsByClassName("node");
+    for (let i = 0; i < nodes.length; i++) {
+        dragElement(nodes[i]);
+    }
+</script>
+</body>
+</html>
