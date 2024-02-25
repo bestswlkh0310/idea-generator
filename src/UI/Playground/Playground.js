@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import styled, { css } from "styled-components";
 import { shadow1 } from "../../component/theme/Shadow";
 import Node from './Node';
+import { NodeType } from "./NodeType";
 
 function Playground() {
 
@@ -47,7 +48,10 @@ function Playground() {
 
     return (
         <Container>
-            <Node id={'node1'}> </Node>
+            <Node id={'node1'} nodeType={NodeType.init}/>
+            <Node id={'node2'} nodeType={NodeType.final}/>
+            <Node id={'node3'} nodeType={NodeType.final}/>
+            <Node id={'node4'} nodeType={NodeType.final}/>
         </Container>
     );
 }
@@ -55,6 +59,8 @@ function Playground() {
 const Container = styled.section`
     display: flex;
     flex-direction: column;
+    width: 100%;
+    height: 100%;
     position: relative;
     z-index: -1;
 `;
